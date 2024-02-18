@@ -1,15 +1,12 @@
+import { useRef } from "react";
 import Container from "../Container";
-import RequestTypeSelect from "../RequestTypeSelect";
-import { Input } from "../ui/input";
+import Form from "./Form";
 
 export default function Main() {
    return (
       <main>
-         <Container>
-            <div className="flex items-center">
-               <RequestTypeSelect />
-               <Input type="text" placeholder="Type here" />
-            </div>
+         <Container className="flex items-center gap-2 w-full">
+            <Form />
          </Container>
       </main>
    );
