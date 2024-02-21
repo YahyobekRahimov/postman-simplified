@@ -12,7 +12,7 @@ export default function Form() {
    return (
       <form
          onSubmit={handleSubmit}
-         className="flex items-center gap-2 w-full"
+         className="flex items-start gap-2 w-full"
       >
          <div className="flex items-center border-1 border-solid border rounded-lg w-full">
             <RequestTypeSelect

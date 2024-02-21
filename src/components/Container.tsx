@@ -1,14 +1,19 @@
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 
 export default function Container({
    children,
    className,
+   style,
 }: {
    children?: ReactNode;
    className?: string;
+   style?: CSSProperties;
 }) {
    return (
-      <div className={`container mx-auto ${className ?? ""}`}>
+      <div
+         style={style}
+         className={`container mx-auto ${className ?? ""}`}
+      >
          {children}
       </div>
    );
