@@ -7,7 +7,7 @@ import {
    SelectValue,
 } from "./ui/select";
 
-const colors = [
+const selectItems = [
    {
       type: "GET",
       color: "#64D592",
@@ -40,13 +40,13 @@ const colors = [
 
 export default function RequestTypeSelect({
    requestType,
-   setRequestType,
+   handleSelectChange,
 }: {
    requestType: string;
-   setRequestType: any;
+   handleSelectChange: any;
 }) {
    const getColor = () => {
-      const color = colors.find(
+      const color = selectItems.find(
          (color) => color.type === requestType
       );
       return color?.color;
@@ -54,7 +54,8 @@ export default function RequestTypeSelect({
    return (
       <Select
          defaultValue="GET"
-         onValueChange={(e) => setRequestType(e)}
+         value={requestType}
+         onValueChange={handleSelectChange}
       >
          <SelectTrigger
             className={`w-[7rem] font-semibold focus:outline-none`}
@@ -67,33 +68,15 @@ export default function RequestTypeSelect({
          </SelectTrigger>
          <SelectContent>
             <SelectGroup className="font-semibold">
-               <SelectItem style={{ color: "#64D592" }} value="GET">
-                  GET
-               </SelectItem>
-               <SelectItem style={{ color: "#FCE17D" }} value="POST">
-                  POST
-               </SelectItem>
-               <SelectItem style={{ color: "#71A9EE" }} value="PUT">
-                  PUT
-               </SelectItem>
-               <SelectItem style={{ color: "#B7A0D6" }} value="PATCH">
-                  PATCH
-               </SelectItem>
-               <SelectItem
-                  style={{ color: "#F79A8E" }}
-                  value="DELETE"
-               >
-                  DELETE
-               </SelectItem>
-               <SelectItem style={{ color: "#65CF91" }} value="HEAD">
-                  HEAD
-               </SelectItem>
-               <SelectItem
-                  style={{ color: "#E95BAA" }}
-                  value="OPTIONS"
-               >
-                  OPTIONS
-               </SelectItem>
+               {selectItems.map((color) => (
+                  <SelectItem
+                     value={color.type}
+                     key={color.type}
+                     style={{ color: color.color }}
+                  >
+                     {color.type}
+                  </SelectItem>
+               ))}
             </SelectGroup>
          </SelectContent>
       </Select>

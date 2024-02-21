@@ -6,10 +6,19 @@ export type paramsType = {
    description: string;
 };
 
+export type requestMethods =
+   | "GET"
+   | "POST"
+   | "PUT"
+   | "PATCH"
+   | "DELETE"
+   | "HEAD"
+   | "OPTIONS";
+
 export type requestType = {
-   id: string | number;
+   id: string;
    name: string;
-   requestType: string;
+   requestMethod: requestMethods;
    url: string;
    params: paramsType[];
 };

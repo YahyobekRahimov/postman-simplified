@@ -3,7 +3,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface IState {
    requests: requestType[];
-   currentRequest: null | string | number;
+   currentRequest: null | string;
 }
 
 const initialState: IState = {
@@ -21,9 +21,31 @@ const requestsSlice = createSlice({
       ) => {
          state.requests.push(payload);
       },
+      setCurrentRequest: (
+         state,
+         { payload }: PayloadAction<string>
+      ) => {
+         state.currentRequest = payload;
+      },
+      updateRequest: (
+         state,
+         { payload }: PayloadAction<Partial<requestType>>
+      ) => {
+         const { id, ...updatedProps } = payload;
+         const index = state.requests.findIndex(
+            (request) => request.id === id
+         );
+         if (index !== -1) {
+            state.requests[index] = {
+               ...state.requests[index],
+               ...updatedProps,
+            };
+         }
+      },
    },
 });
 
-export const { addNewRequest } = requestsSlice.actions;
+export const { addNewRequest, setCurrentRequest, updateRequest } =
+   requestsSlice.actions;
 
 export default requestsSlice.reducer;
