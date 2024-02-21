@@ -7,6 +7,7 @@ function App() {
    return (
       <Providers>
          <Header />
+
          <Main />
       </Providers>
    );

@@ -4,14 +4,34 @@ export default function ThemeController() {
    const [isDark, setIsDark] = useState(false);
 
    useEffect(() => {
+      if (localStorage.theme && localStorage.theme === "dark") {
+         setIsDark(true);
+      } else if (
+         localStorage.theme &&
+         localStorage.theme === "light"
+      ) {
+         setIsDark(false);
+      } else if (
+         window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+         setIsDark(true);
+      } else {
+         setIsDark(false);
+      }
+   }, []);
+
+   useEffect(() => {
       if (isDark) {
          document.documentElement.setAttribute("data-theme", "dark");
          document.documentElement.setAttribute("class", "dark");
+         localStorage.setItem("theme", "dark");
       } else {
          document.documentElement.setAttribute("data-theme", "light");
          document.documentElement.setAttribute("class", "light");
+         localStorage.setItem("theme", "light");
       }
    }, [isDark]);
+
    return (
       <label className="cursor-pointer grid place-items-center">
          <input
