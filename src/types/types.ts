@@ -3,7 +3,6 @@ export type themeType = "light" | "dark";
 export type paramsType = {
    key: string;
    value: string;
-   description: string;
 };
 
 export type requestMethods =

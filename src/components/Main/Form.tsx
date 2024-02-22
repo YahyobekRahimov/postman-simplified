@@ -63,9 +63,7 @@ export default function Form() {
          setRequestName(request.name);
          setRequestType(request.requestMethod);
          setRequestURL(request.url);
-         console.log("request method: ", request.requestMethod);
       }
-      console.log("current request changed");
    }, [request]);
 
    return (

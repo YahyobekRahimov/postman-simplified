@@ -1,8 +1,8 @@
 import Container from "../Container";
 import Form from "./Form";
 import Sidebar from "../../layout/Sidebar";
-import Separator from "./Separator";
-import { useState } from "react";
+import Tabs from "./Tabs/Tabs";
+import Response from "./Response";
 
 export default function Main() {
    return (
@@ -14,7 +14,11 @@ export default function Main() {
             }}
          >
             <Sidebar />
-            <Form />
+            <div className="w-full">
+               <Form />
+               <Tabs />
+               <Response />
+            </div>
          </Container>
       </main>
    );
