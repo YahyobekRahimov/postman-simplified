@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { updateRequest } from "@/redux/requestsSlice";
 import { requestMethods, requestType } from "@/types/types";
+import { getRequest } from "@/lib/utils";
+import { setData, setResponse } from "@/redux/responseSlice";
 
 export default function Form() {
    // States
@@ -24,9 +26,12 @@ export default function Form() {
    );
 
    // Event handler functions
-   const handleSubmit = (e: FormEvent) => {
+   const handleSubmit = async (e: FormEvent) => {
       e.preventDefault();
-      console.log("submitted");
+      // @ts-ignore
+      const { data, res } = await getRequest(requestURL);
+      dispatch(setResponse(res));
+      dispatch(setData(data));
    };
    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       setRequestName(e.target.value);

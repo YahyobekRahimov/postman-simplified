@@ -14,7 +14,7 @@ export default function Main() {
             }}
          >
             <Sidebar />
-            <div className="w-full">
+            <div className="w-full max-w-[60rem] overflow-auto">
                <Form />
                <Tabs />
                <Response />

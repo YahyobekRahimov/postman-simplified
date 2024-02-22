@@ -1,5 +1,4 @@
-import { ChangeEvent, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
 import ParamTextInput from "./ParamTextInput";
 import { makeArray } from "@/lib/utils";
 import TrashIcon from "./TrashIcon";
@@ -9,9 +8,6 @@ export default function Params() {
    const [tableIndex, setTableIndex] = useState<number[]>(
       makeArray(1)
    );
-
-   // other hooks
-   const dispatch = useDispatch();
 
    // functions
 
