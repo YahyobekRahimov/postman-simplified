@@ -29,7 +29,7 @@ export default function Tabs() {
       <>
          <div className="mt-5 flex gap-4">
             {TABS.map((tab, index) => (
-               <dionv
+               <div
                   key={index}
                   className={`cursor-pointer border-b border-solid pb-2 ${
                      index === activeTab
@@ -39,7 +39,7 @@ export default function Tabs() {
                   onClick={() => setActiveTab(index)}
                >
                   {tab.name}
-               </dionv>
+               </div>
             ))}
          </div>
          {TABS[activeTab].element}

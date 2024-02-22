@@ -13,7 +13,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export default function Sidebar() {
    const [sidebarWidth, setSidebarWidth] = useState<number>(500);
-   const [theme, setTheme] = useState<"light" | "dark">("dark");
+   const theme: "light" | "dark" = "dark";
    const dispatch = useDispatch();
    const requests = useSelector(
       (state: RootState) => state.requests.requests

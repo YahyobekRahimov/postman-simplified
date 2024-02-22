@@ -11,7 +11,7 @@ export default function Params() {
 
    // functions
 
-   const handleDelete = (index: number) => {};
+   // const handleDelete = (index: number) => {};
 
    const addRowToTable = () => {
       setTableIndex((prev) => makeArray(prev.length + 1));
@@ -60,10 +60,7 @@ export default function Params() {
                            />
                         </td>
                         <td>
-                           <button
-                              onClick={() => handleDelete(index)}
-                              className="btn btn-circle"
-                           >
+                           <button className="btn btn-circle">
                               <TrashIcon />
                            </button>
                         </td>
